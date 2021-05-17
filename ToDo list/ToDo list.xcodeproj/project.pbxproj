@@ -12,6 +12,7 @@
 		A71B01AE2652C325005B4EB1 /* ToDo_list.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A71B01AC2652C325005B4EB1 /* ToDo_list.xcdatamodeld */; };
 		A71B01B02652C325005B4EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A71B01AF2652C325005B4EB1 /* Assets.xcassets */; };
 		A71B01C22652CC81005B4EB1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */; };
+		A71B01C9265311A6005B4EB1 /* ExtensionUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A71B01AF2652C325005B4EB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A71B01B42652C325005B4EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUINavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		A71B01A22652C324005B4EB1 /* ToDo list */ = {
 			isa = PBXGroup;
 			children = (
+				A71B01C726531175005B4EB1 /* Extensions */,
 				A71B01BF2652CB85005B4EB1 /* Core */,
 				A71B01BA2652C93F005B4EB1 /* Supporting */,
 				A71B01BE2652CA53005B4EB1 /* ViewControllers */,
@@ -102,6 +105,14 @@
 				A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		A71B01C726531175005B4EB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 			files = (
 				A71B01C22652CC81005B4EB1 /* DatabaseManager.swift in Sources */,
 				A71B01A82652C325005B4EB1 /* TaskListViewController.swift in Sources */,
+				A71B01C9265311A6005B4EB1 /* ExtensionUINavigationController.swift in Sources */,
 				A71B01A42652C325005B4EB1 /* AppDelegate.swift in Sources */,
 				A71B01AE2652C325005B4EB1 /* ToDo_list.xcdatamodeld in Sources */,
 			);
