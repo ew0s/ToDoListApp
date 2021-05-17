@@ -7,13 +7,15 @@
 
 import UIKit
 
-class TaskListViewController: UIViewController {
+class TaskListViewController: UITableViewController {
+    
+    // MARK: - Private properties
+    private var textData: [Task] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let data = DatabaseManager.shared.fetchData()
+        print(data.self)
     }
-
-
 }
 
