@@ -11,7 +11,7 @@ import CoreData
 class DatabaseManager {
     
     // MARK: - Public properties
-    let shared = DatabaseManager()
+    static let shared = DatabaseManager()
     
     // MARK: - Private properties
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
