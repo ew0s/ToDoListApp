@@ -16,19 +16,19 @@ class TaskListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
-//        fetchData()
+        fetchData()
     }
 }
 
 // MARK: - Private methods
 extension TaskListViewController {
-//    private func fetchData() {
-//        guard let fetchedData = DatabaseManager.shared.fetchData() as? [Task] else {
-//            return
-//        }
-//
-//        taskList = fetchedData
-//    }
+    private func fetchData() {
+        guard let fetchedData = DatabaseManager.shared.fetchData() as? [Task] else {
+            return
+        }
+
+        taskList = fetchedData
+    }
     
     private func setupViewController() {
         title = "Task List"
@@ -49,19 +49,19 @@ extension TaskListViewController {
     }
 }
 
-//// MARK: - UITableViewDataSource
-//extension TaskListViewController {
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        taskList.count
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-//        let task = taskList[indexPath.row]
-//        var content = cell.defaultContentConfiguration()
-//        content.text = task.title
-//        cell.contentConfiguration = content
-//
-//        return cell
-//    }
-//}
+// MARK: - UITableViewDataSource
+extension TaskListViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        taskList.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let task = taskList[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        content.text = task.title
+        cell.contentConfiguration = content
+
+        return cell
+    }
+}
