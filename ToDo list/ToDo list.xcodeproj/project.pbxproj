@@ -13,6 +13,7 @@
 		A71B01B02652C325005B4EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A71B01AF2652C325005B4EB1 /* Assets.xcassets */; };
 		A71B01C22652CC81005B4EB1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */; };
 		A71B01C9265311A6005B4EB1 /* ExtensionUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */; };
+		A7484E602654468A00235471 /* ExtensionUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7484E5F2654468A00235471 /* ExtensionUIAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A71B01B42652C325005B4EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUINavigationController.swift; sourceTree = "<group>"; };
+		A7484E5F2654468A00235471 /* ExtensionUIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */,
+				A7484E5F2654468A00235471 /* ExtensionUIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				A71B01A82652C325005B4EB1 /* TaskListViewController.swift in Sources */,
 				A71B01C9265311A6005B4EB1 /* ExtensionUINavigationController.swift in Sources */,
 				A71B01A42652C325005B4EB1 /* AppDelegate.swift in Sources */,
+				A7484E602654468A00235471 /* ExtensionUIAlertController.swift in Sources */,
 				A71B01AE2652C325005B4EB1 /* ToDo_list.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
