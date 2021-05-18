@@ -31,13 +31,25 @@ class DatabaseManager {
         }
     }
     
+    func deleteAt(indexPath: IndexPath) {
+        context.delete(taskList[indexPath.row])
+        taskList.remove(at: indexPath.row)
+        saveContext()
+    }
+    
     func save(taskName: String) {
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
         guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
         
         task.title = taskName
         taskList.append(task)
-        
+        saveContext()
+    }
+}
+
+// MARK: - Private methods
+extension DatabaseManager {
+    private func saveContext() {
         do {
             try context.save()
         } catch let error {
