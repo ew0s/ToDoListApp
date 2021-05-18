@@ -73,7 +73,11 @@ extension TaskListViewController {
             message: "Enter task name",
             preferredStyle: .alert
         )
-        alertController.setAlertController()
+        
+        alertController.setAlertController { task in
+            DatabaseManager.shared.save(taskName: task)
+        }
+        
         present(alertController, animated: true)
     }
 }
