@@ -12,6 +12,7 @@ class DatabaseManager {
     
     // MARK: - Public properties
     static let shared = DatabaseManager()
+    public private(set) var taskList: [Task] = []
     
     // MARK: - Private properties
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -20,21 +21,22 @@ class DatabaseManager {
     private init() {}
     
     // MARK: - Public methods
-    func fetchData() -> [Any] {
+    func fetchData() {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
         do {
-            return try context.fetch(fetchRequest)
+            try taskList = context.fetch(fetchRequest)
         } catch let error {
             print(error)
         }
-        
-        return []
     }
     
     func save(taskName: String) {
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
-        guard let _ = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
+        guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
+        
+        task.title = taskName
+        taskList.append(task)
         
         do {
             try context.save()

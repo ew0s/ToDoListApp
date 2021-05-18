@@ -10,9 +10,12 @@ import UIKit
 class TaskListViewController: UITableViewController {
     
     // MARK: - Private properties
-    private var taskList: [Task] = []
     private let cellID = "cell"
+    private var taskList: [Task] {
+        DatabaseManager.shared.taskList
+    }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
@@ -23,11 +26,7 @@ class TaskListViewController: UITableViewController {
 // MARK: - Private methods
 extension TaskListViewController {
     private func fetchData() {
-        guard let fetchedData = DatabaseManager.shared.fetchData() as? [Task] else {
-            return
-        }
-
-        taskList = fetchedData
+        DatabaseManager.shared.fetchData()
     }
     
     private func setupViewController() {
@@ -44,19 +43,24 @@ extension TaskListViewController {
     }
     
     @objc private func addNewTask() {
-        showAlert()
+        showAlert { task in
+            guard let task = task, !task.isEmpty else { return }
+            DatabaseManager.shared.save(taskName: task)
+            let cellIndex = IndexPath(row: self.taskList.count - 1, section: 0)
+            self.tableView.insertRows(at: [cellIndex], with: .automatic)
+        }
     }
 }
 
 // MARK: - UITableViewDataSource
 extension TaskListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        taskList.count
+        DatabaseManager.shared.taskList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        let task = taskList[indexPath.row]
+        let task =  taskList[indexPath.row]
         var content = cell.defaultContentConfiguration()
         content.text = task.title
         cell.contentConfiguration = content
@@ -67,7 +71,7 @@ extension TaskListViewController {
 
 // MARK: - UIAlertController
 extension TaskListViewController {
-    private func showAlert() {
+    private func showAlert(complition: @escaping (String?) -> Void) {
         let alertController = UIAlertController(
             title: "Add Task",
             message: "Enter task name",
@@ -75,9 +79,11 @@ extension TaskListViewController {
         )
         
         alertController.setAlertController { task in
-            DatabaseManager.shared.save(taskName: task)
+            complition(task)
         }
         
         present(alertController, animated: true)
+        
+        complition(nil)
     }
 }
