@@ -43,9 +43,8 @@ extension TaskListViewController {
         )
     }
     
-    @objc
-    private func addNewTask() {
-        
+    @objc private func addNewTask() {
+        showAlert()
     }
 }
 
@@ -63,5 +62,18 @@ extension TaskListViewController {
         cell.contentConfiguration = content
 
         return cell
+    }
+}
+
+// MARK: - UIAlertController
+extension TaskListViewController {
+    private func showAlert() {
+        let alertController = UIAlertController(
+            title: "Add Task",
+            message: "Enter task name",
+            preferredStyle: .alert
+        )
+        alertController.setAlertController()
+        present(alertController, animated: true)
     }
 }
