@@ -43,7 +43,9 @@ extension TaskListViewController {
     }
     
     @objc private func addNewTask() {
-        showAlert { task in
+        showAlert(
+            with: "Add Task",
+            and: "Enter value") { task in
             guard let task = task, !task.isEmpty else { return }
             DatabaseManager.shared.save(taskName: task)
             let cellIndex = IndexPath(row: self.taskList.count - 1, section: 0)
@@ -68,6 +70,18 @@ extension TaskListViewController {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAlert(
+            with: "Edit Task",
+            and: "Enter value") { task in
+            guard let task = task else { return }
+            DatabaseManager.shared.editAt(indexPath: indexPath, with: task)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
@@ -82,10 +96,10 @@ extension TaskListViewController {
 
 // MARK: - UIAlertController
 extension TaskListViewController {
-    private func showAlert(complition: @escaping (String?) -> Void) {
+    private func showAlert(with title: String, and message: String, complition: @escaping (String?) -> Void) {
         let alertController = UIAlertController(
-            title: "Add Task",
-            message: "Enter task name",
+            title: title,
+            message: message,
             preferredStyle: .alert
         )
         

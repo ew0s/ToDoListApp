@@ -37,6 +37,11 @@ class DatabaseManager {
         saveContext()
     }
     
+    func editAt(indexPath: IndexPath, with newTitle: String) {
+        taskList[indexPath.row].title = newTitle
+        saveContext()
+    }
+    
     func save(taskName: String) {
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
         guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }

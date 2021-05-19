@@ -11,7 +11,7 @@ extension UIAlertController {
     
     func setAlertController(complition: @escaping (String) -> Void) {
         
-        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+        let addAction = UIAlertAction(title: "Ok", style: .default) { _ in
             guard let task = self.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
                 return
             }
