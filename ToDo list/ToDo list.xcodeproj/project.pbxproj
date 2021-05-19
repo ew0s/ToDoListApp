@@ -11,7 +11,9 @@
 		A71B01A82652C325005B4EB1 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B01A72652C325005B4EB1 /* TaskListViewController.swift */; };
 		A71B01AE2652C325005B4EB1 /* ToDo_list.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A71B01AC2652C325005B4EB1 /* ToDo_list.xcdatamodeld */; };
 		A71B01B02652C325005B4EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A71B01AF2652C325005B4EB1 /* Assets.xcassets */; };
-		A71B01B32652C325005B4EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A71B01B12652C325005B4EB1 /* LaunchScreen.storyboard */; };
+		A71B01C22652CC81005B4EB1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */; };
+		A71B01C9265311A6005B4EB1 /* ExtensionUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */; };
+		A7484E602654468A00235471 /* ExtensionUIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7484E5F2654468A00235471 /* ExtensionUIAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,8 +22,10 @@
 		A71B01A72652C325005B4EB1 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		A71B01AD2652C325005B4EB1 /* ToDo_list.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo_list.xcdatamodel; sourceTree = "<group>"; };
 		A71B01AF2652C325005B4EB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A71B01B22652C325005B4EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A71B01B42652C325005B4EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUINavigationController.swift; sourceTree = "<group>"; };
+		A7484E5F2654468A00235471 /* ExtensionUIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,64 @@
 		A71B01A22652C324005B4EB1 /* ToDo list */ = {
 			isa = PBXGroup;
 			children = (
-				A71B01A32652C325005B4EB1 /* AppDelegate.swift */,
-				A71B01A72652C325005B4EB1 /* TaskListViewController.swift */,
-				A71B01AF2652C325005B4EB1 /* Assets.xcassets */,
-				A71B01B12652C325005B4EB1 /* LaunchScreen.storyboard */,
-				A71B01B42652C325005B4EB1 /* Info.plist */,
-				A71B01AC2652C325005B4EB1 /* ToDo_list.xcdatamodeld */,
+				A71B01C726531175005B4EB1 /* Extensions */,
+				A71B01BF2652CB85005B4EB1 /* Core */,
+				A71B01BA2652C93F005B4EB1 /* Supporting */,
+				A71B01BE2652CA53005B4EB1 /* ViewControllers */,
+				A71B01BB2652C95F005B4EB1 /* Resources */,
+				A71B01BD2652CA28005B4EB1 /* CoreData */,
 			);
 			path = "ToDo list";
+			sourceTree = "<group>";
+		};
+		A71B01BA2652C93F005B4EB1 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				A71B01A32652C325005B4EB1 /* AppDelegate.swift */,
+				A71B01B42652C325005B4EB1 /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		A71B01BB2652C95F005B4EB1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A71B01AF2652C325005B4EB1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A71B01BD2652CA28005B4EB1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A71B01AC2652C325005B4EB1 /* ToDo_list.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		A71B01BE2652CA53005B4EB1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A71B01A72652C325005B4EB1 /* TaskListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A71B01BF2652CB85005B4EB1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A71B01C12652CC81005B4EB1 /* DatabaseManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A71B01C726531175005B4EB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A71B01C8265311A6005B4EB1 /* ExtensionUINavigationController.swift */,
+				A7484E5F2654468A00235471 /* ExtensionUIAlertController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,7 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A71B01B32652C325005B4EB1 /* LaunchScreen.storyboard in Resources */,
 				A71B01B02652C325005B4EB1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,24 +186,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71B01C22652CC81005B4EB1 /* DatabaseManager.swift in Sources */,
 				A71B01A82652C325005B4EB1 /* TaskListViewController.swift in Sources */,
+				A71B01C9265311A6005B4EB1 /* ExtensionUINavigationController.swift in Sources */,
 				A71B01A42652C325005B4EB1 /* AppDelegate.swift in Sources */,
+				A7484E602654468A00235471 /* ExtensionUIAlertController.swift in Sources */,
 				A71B01AE2652C325005B4EB1 /* ToDo_list.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A71B01B12652C325005B4EB1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A71B01B22652C325005B4EB1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A71B01B52652C325005B4EB1 /* Debug */ = {
@@ -276,7 +321,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4JX7HPBVUY;
-				INFOPLIST_FILE = "ToDo list/Info.plist";
+				INFOPLIST_FILE = "ToDo list/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,7 +340,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4JX7HPBVUY;
-				INFOPLIST_FILE = "ToDo list/Info.plist";
+				INFOPLIST_FILE = "ToDo list/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
