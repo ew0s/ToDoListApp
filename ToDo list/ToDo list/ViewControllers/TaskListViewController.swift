@@ -72,6 +72,7 @@ extension TaskListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         showAlert(
             with: "Edit Task",
             and: "Enter value") { task in
