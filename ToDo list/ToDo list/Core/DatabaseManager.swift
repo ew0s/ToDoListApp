@@ -15,7 +15,20 @@ class DatabaseManager {
     public private(set) var taskList: [Task] = []
     
     // MARK: - Private properties
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var persistentContainer: NSPersistentContainer = {
+        
+        let container = NSPersistentContainer(name: "ToDo_list")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    private var context: NSManagedObjectContext {
+        persistentContainer.viewContext
+    }
     
     // MARK: - Initializers
     private init() {}
@@ -52,13 +65,16 @@ class DatabaseManager {
     }
 }
 
-// MARK: - Private methods
+// MARK: - Core Data Saving support
 extension DatabaseManager {
-    private func saveContext() {
-        do {
-            try context.save()
-        } catch let error {
-            print(error.localizedDescription)
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch let error {
+                print(error)
+            }
         }
     }
 }
